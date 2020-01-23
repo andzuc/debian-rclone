@@ -1,0 +1,6 @@
+#!/bin/bash
+docker volume create --driver local \
+       --opt type=tmpfs \
+       --opt device=tmpfs \
+       --opt o=size=100m,uid=1000 \
+       rclone
