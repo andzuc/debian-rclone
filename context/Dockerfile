@@ -4,7 +4,6 @@ RUN apt-get -y update && apt-get install -y \
     ca-certificates \
     git \
     golang-go \
-    cryptsetup \
     --no-install-recommends
 RUN mkdir -p /usr/local/lib/go
 ENV GOPATH=/usr/local/lib/go
