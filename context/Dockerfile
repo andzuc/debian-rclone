@@ -1,5 +1,5 @@
 FROM debian:buster
-LABEL maintainer "Andrea Zuccherelli <andrea.zuccherelli@gmail.com>"
+LABEL maintainer "Andrea Zuccherelli <andrea@zuccherelli.net>"
 RUN apt-get -y update && apt-get install -y \
     ca-certificates \
     git \
