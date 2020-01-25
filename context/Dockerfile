@@ -1,6 +1,7 @@
 FROM debian:buster
 LABEL maintainer "Andrea Zuccherelli <andrea@zuccherelli.net>"
 RUN apt-get -y update && apt-get install -y \
+    build-essential \
     ca-certificates \
     git \
     golang-go \
