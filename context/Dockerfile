@@ -8,7 +8,8 @@ RUN apt-get -y update && apt-get install -y \
     --no-install-recommends
 RUN mkdir -p /usr/local/lib/go
 ENV GOPATH=/usr/local/lib/go
-RUN go get -u -v github.com/ncw/rclone
+ENV VER="v1.45"
+RUN go get -u -v "github.com/ncw/rclone@${VER}"
 RUN useradd -m rcloner
 USER rcloner
 ENV HOME /home/rcloner
