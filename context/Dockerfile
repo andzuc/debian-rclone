@@ -1,4 +1,4 @@
-FROM debian:buster-20191224-slim
+FROM debian:buster-20191224
 LABEL maintainer "Andrea Zuccherelli <andrea@zuccherelli.net>"
 RUN apt-get install -y \
     build-essential \
