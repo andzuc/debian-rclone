@@ -1,6 +1,6 @@
-FROM debian:buster
+FROM debian:buster-20191224-slim
 LABEL maintainer "Andrea Zuccherelli <andrea@zuccherelli.net>"
-RUN apt-get -y update && apt-get install -y \
+RUN apt-get install -y \
     build-essential \
     ca-certificates \
     git \
