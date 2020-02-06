@@ -17,6 +17,5 @@ RUN git clone -b "${VER}" --depth 1 https://github.com/ncw/rclone \
 RUN useradd -m rcloner
 USER rcloner
 ENV HOME /home/rcloner
-RUN mkdir /home/rcloner/gdrive
-WORKDIR /home/rcloner/gdrive
+VOLUME /home/rcloner
 ENTRYPOINT ["/usr/local/lib/go/bin/rclone"]
