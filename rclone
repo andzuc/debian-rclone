@@ -1,20 +1,23 @@
 #!/bin/bash
-BASEDIR=$PWD
-PROFILE=$1
-ABSBASEDIR=$(realpath $BASEDIR)
-PROFILEDIR=${ABSBASEDIR}/rcloneconf/${PROFILE}
+# BASEDIR=$PWD
+# PROFILE=$1
+# ABSBASEDIR=$(realpath $BASEDIR)
+# PROFILEDIR=${ABSBASEDIR}/rcloneconf/${PROFILE}
 
-if [ -z $PROFILE ] ; then
-        docker run --name rclone-${PROFILE} --rm -i \
-	       rclone $@
-else
-    shift 1
-    if [ -d "${PROFILEDIR}" ] ; then
-	docker run --name rclone-${PROFILE}X --rm -i \
-	       -v "${PROFILEDIR}:/home/rcloner/.config/rclone:rw" \
-	       -v "${PROFILEDIR}/drive:/home/rcloner/gdrive" \
-	       rclone $@
-    else
-	echo "Profile not found: ${PROFILE}"
-    fi
-fi
+# if [ -z $PROFILE ] ; then
+#         docker run --name rclone-${PROFILE} --rm -i \
+# 	       rclone $@
+# else
+#     shift 1
+#     if [ -d "${PROFILEDIR}" ] ; then
+# 	docker run --name rclone-${PROFILE}X --rm -i \
+# 	       -v "${PROFILEDIR}:/home/rcloner/.config/rclone:rw" \
+# 	       -v "${PROFILEDIR}/drive:/home/rcloner/gdrive" \
+# 	       rclone $@
+#     else
+# 	echo "Profile not found: ${PROFILE}"
+#     fi
+# fi
+#docker run --rm -v "$(pwd)/rcloneconf:/home/rcloner/:ro" andzuc/debian-rclone:2020020600
+
+docker run -it --rm -v "$(pwd)/rcloneconf:/home/rcloner/:rw" andzuc/debian-rclone:2020020600 "$@"
