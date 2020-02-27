@@ -20,4 +20,9 @@
 # fi
 #docker run --rm -v "$(pwd)/rcloneconf:/home/rcloner/:ro" andzuc/debian-rclone:2020020600
 
-docker run -it --rm -v "$(pwd)/rcloneconf:/home/rcloner/:rw" andzuc/debian-rclone:2020020600 "$@"
+docker run --rm -it \
+       --device /dev/fuse \
+       --cap-add=SYS_ADMIN \
+       -v "$(pwd)/rcloneconf:/home/rcloner/:shared" \
+       andzuc/debian-rclone:2020021200 \
+       "$@"
